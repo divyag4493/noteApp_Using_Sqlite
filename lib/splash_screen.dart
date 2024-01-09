@@ -11,7 +11,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -20,7 +19,6 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => NotesPage()));
     });
-
   }
 
   @override
@@ -28,7 +26,8 @@ class _SplashScreenState extends State<SplashScreen> {
     return Container(
       color: Color(0xFF000000),
       child: Image.network(
-          'https://thumbs.dreamstime.com/b/notes-icon-isolated-black-background-simple-vector-logo-notes-icon-isolated-black-background-164106419.jpg',),
-           );
+        'https://thumbs.dreamstime.com/b/notes-icon-isolated-black-background-simple-vector-logo-notes-icon-isolated-black-background-164106419.jpg',
+      ),
+    );
   }
 }

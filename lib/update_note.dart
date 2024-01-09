@@ -79,6 +79,7 @@ class _UpdateNoteState extends State<UpdateNote> {
                           child: Icon(Icons.arrow_back_ios_new,
                               color: Color(0XFFFFFFFF)),
                         )),
+                    SizedBox(width: 100,),
                     InkWell(
                       onTap: () async {
                         if (newTitle != '' && newDesc != '') {
@@ -107,6 +108,26 @@ class _UpdateNoteState extends State<UpdateNote> {
                                 color: Color(0XFFFFFFFF),
                                 fontWeight: FontWeight.bold),
                           ))),
+                    ),
+                    Container(
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: Color(0XFF3B3B3B),
+                      ),
+                      child: InkWell(
+                          onTap: () async {
+                            await myDB
+                                .deleteNote(widget.id!);
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NotesPage()));
+                            getNotes();
+                          },
+                          child: Icon(
+                            Icons.delete,
+                            color: Colors.white,
+                            size: 26,
+                          )),
                     ),
                   ],
                 ),
