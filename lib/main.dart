@@ -20,12 +20,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: NotesPage(),
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
     );
   }
 }
 
 class NotesPage extends StatefulWidget {
+
   /* String? mTitle = '';
   String? mDesc = '';
   NotesPage({required this.mTitle,required this.mDesc});*/
@@ -39,8 +41,7 @@ class _NotesPageState extends State<NotesPage> {
   List<NoteModel> arrNotes = [];
   var titleController = TextEditingController();
   var descController = TextEditingController();
-  var _titlecontrollers;
-  var _desccontrollers;
+
 
   @override
   void initState() {
@@ -63,12 +64,6 @@ class _NotesPageState extends State<NotesPage> {
     }
   }
 
-  void _updateControllers(){
-    setState(() {
-      _titlecontrollers = titleController.text;
-      _desccontrollers = descController.text;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
