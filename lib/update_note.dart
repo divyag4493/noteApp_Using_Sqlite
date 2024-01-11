@@ -79,13 +79,17 @@ class _UpdateNoteState extends State<UpdateNote> {
                           child: Icon(Icons.arrow_back_ios_new,
                               color: Color(0XFFFFFFFF)),
                         )),
-                    SizedBox(width: 100,),
+                    SizedBox(
+                      width: 100,
+                    ),
                     InkWell(
                       onTap: () async {
                         if (newTitle != '' && newDesc != '') {
                           await myDB.updateNote(NoteModel(
-                              note_id: widget.id, title: newTitle, desc: newDesc));
-          
+                              note_id: widget.id,
+                              title: newTitle,
+                              desc: newDesc));
+
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -100,14 +104,19 @@ class _UpdateNoteState extends State<UpdateNote> {
                             borderRadius: BorderRadius.circular(8.0),
                             color: Color(0XFF3B3B3B),
                           ),
-                          child: Center(
-                              child: Text(
-                            'Update',
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: Color(0XFFFFFFFF),
-                                fontWeight: FontWeight.bold),
-                          ))),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(Icons.save,color: Colors.green.shade500,size: 26),
+                              Text(
+                                'Update',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.green.shade500,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          )),
                     ),
                     Container(
                       height: 50,
@@ -118,14 +127,16 @@ class _UpdateNoteState extends State<UpdateNote> {
                       ),
                       child: InkWell(
                           onTap: () async {
-                            await myDB
-                                .deleteNote(widget.id!);
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NotesPage()));
+                            await myDB.deleteNote(widget.id!);
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NotesPage()));
                             getNotes();
                           },
                           child: Icon(
                             Icons.delete,
-                            color: Colors.white,
+                            color: Colors.red,
                             size: 26,
                           )),
                     ),
@@ -138,7 +149,7 @@ class _UpdateNoteState extends State<UpdateNote> {
               Form(
                 child: TextFormField(
                   initialValue: newTitle,
-                  onChanged: (val){
+                  onChanged: (val) {
                     newTitle = val;
                   },
                   style: TextStyle(color: Color(0XFFFFFFFF)),
@@ -147,8 +158,8 @@ class _UpdateNoteState extends State<UpdateNote> {
                       hintText: 'Title here!',
                       hintStyle: TextStyle(color: Color(0XFF8C8C8C)),
                       label: Text('Title',
-                          style:
-                              TextStyle(fontSize: 40, color: Color(0XFF8C8C8C))),
+                          style: TextStyle(
+                              fontSize: 40, color: Color(0XFF8C8C8C))),
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey)),
                       enabledBorder: OutlineInputBorder(
@@ -162,19 +173,19 @@ class _UpdateNoteState extends State<UpdateNote> {
               Form(
                 child: TextFormField(
                   initialValue: newDesc,
-                  onChanged: (val){
+                  onChanged: (val) {
                     newDesc = val;
                   },
                   style: TextStyle(color: Color(0XFFFFFFFF)),
                   maxLines: 15,
-                  
+
                   // controller: descController,//descController != '' ? TextEditingController(text: widget.mDesc) : descController,
                   decoration: InputDecoration(
                       hintText: 'Type something...',
                       hintStyle: TextStyle(color: Color(0XFF8C8C8C)),
                       label: Text('Description',
-                          style:
-                              TextStyle(fontSize: 26, color: Color(0XFF8C8C8C))),
+                          style: TextStyle(
+                              fontSize: 26, color: Color(0XFF8C8C8C))),
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey)),
                       enabledBorder: OutlineInputBorder(

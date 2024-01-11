@@ -92,7 +92,7 @@ class _AddNotePageState extends State<AddNotePage> {
                           'Save',
                           style: TextStyle(
                               fontSize: 22,
-                              color: Color(0XFFFFFFFF),
+                              color: Colors.green.shade500,
                               fontWeight: FontWeight.bold),
                         ))),
                   ),

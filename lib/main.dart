@@ -177,7 +177,7 @@ class _NotesPageState extends State<NotesPage> {
           /* Navigator.push(context,
                 MaterialPageRoute(builder: (context) => AddUpdateNotePage()));*/ /*
           },*/
-          child: Icon(Icons.add, color: Color(0XFFFFFFFF)),
+          child: Icon(Icons.add_card, color: Color(0XFFFFFFFF)),
         ),
       ),
     );
